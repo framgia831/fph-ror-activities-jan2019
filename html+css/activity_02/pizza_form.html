@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Shop</title>
+</head>
+<body>
+    <main>
+        <h1>Pizza Order</h1>
+        <form>
+            <div>
+                <label for="name">Name</label>
+                <div>
+                    <input type="text" name="name" id="name" class="field">
+                </div>
+            </div>
+
+            <br>
+
+            <div>
+                <label for="topping">Pizza Topping</label>
+
+                <div>
+                    <input type="radio" name="topping" value="supreme" id="supreme">
+                    <label for="supreme">Supreme</label> <br>
+
+                    <input type="radio" name="topping" value="vegetarian" id="vegetarian">
+                    <label for="vegetarian">Vegetarian</label><br>
+
+                    <input type="radio" name="topping" value="hawaiian" id="hawaiian">
+                    <label for="hawaiian">Hawaiian</label>
+                </div>
+            </div>
+
+            <br>
+
+            <div>
+                <label for="sauce">Pizza Sauce</label>
+                
+                <div>
+                    <select name="sauce" class="field" id="sauce">
+                        <option value="tomato">Tomato</option>
+                        <option value="barbeque">Barbeque</option>
+                        <option value="secret">Secret Sauce</option>
+                    </select>
+                </div>
+            </div>
+
+            <br>
+
+            <div>
+                <label for="">Optional Extras</label>
+                <div>
+                    <input type="checkbox" name="extra" value="cheese" id="cheese">
+                    <label for="cheese">Extra Cheese</label> <br>
+
+                    <input type="checkbox" name="extra" value="gluten_free" id="gluten_free">
+                    <label for="gluten_free">Gluten Free base</label>
+                </div>
+            </div>
+
+            <br>
+
+            <div>
+                <label for="instructions">Delivery instructions</label>
+                <div>
+                    <textarea id="instructions" name="instructions" class="field"></textarea>
+                </div>
+            </div>
+
+            <input type="submit" class="submit-button" value="Send my order">
+        </form>
+    </main>
+</body>
+</html>
