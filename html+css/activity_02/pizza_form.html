@@ -3,24 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Pizza Shop</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            width: 500px;
+            background-color: #ddd;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .field {
+            white-space: nowrap;
+            margin-bottom: 15px;
+        }
+
+        .field label,
+        .input {
+            width: 50%;
+            display:inline-block;
+            vertical-align: top;
+        }
+
+        .submit-button {
+            width: 100%;
+            margin-top: 20px;
+        }
+    
+    </style>
 </head>
 <body>
     <main>
         <h1>Pizza Order</h1>
         <form>
-            <div>
+            <div class="field">
                 <label for="name">Name</label>
-                <div>
+
+                <div class="input">
                     <input type="text" name="name" id="name" class="field">
                 </div>
             </div>
 
-            <br>
-
-            <div>
+            <div class="field">
                 <label for="topping">Pizza Topping</label>
 
-                <div>
+                <div class="input">
                     <input type="radio" name="topping" value="supreme" id="supreme">
                     <label for="supreme">Supreme</label> <br>
 
@@ -32,12 +61,10 @@
                 </div>
             </div>
 
-            <br>
-
-            <div>
+            <div class="field">
                 <label for="sauce">Pizza Sauce</label>
                 
-                <div>
+                <div class="input">
                     <select name="sauce" class="field" id="sauce">
                         <option value="tomato">Tomato</option>
                         <option value="barbeque">Barbeque</option>
@@ -46,11 +73,10 @@
                 </div>
             </div>
 
-            <br>
-
-            <div>
+            <div class="field">
                 <label for="">Optional Extras</label>
-                <div>
+
+                <div class="input">
                     <input type="checkbox" name="extra" value="cheese" id="cheese">
                     <label for="cheese">Extra Cheese</label> <br>
 
@@ -59,11 +85,10 @@
                 </div>
             </div>
 
-            <br>
-
-            <div>
+            <div class="field">
                 <label for="instructions">Delivery instructions</label>
-                <div>
+
+                <div class="input">
                     <textarea id="instructions" name="instructions" class="field"></textarea>
                 </div>
             </div>
