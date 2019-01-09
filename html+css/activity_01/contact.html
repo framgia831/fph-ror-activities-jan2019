@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+</head>
+<body>
+    <ul>
+        <li><a href="about_me.html">About me</a></li>
+        <li><a href="social.html">Social</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <form>
+        <div>
+            <label for="name">First Name</label>
+            <input type="text" id="name" name="first_name">
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="pword">
+        </div>
+
+        <div>
+            <label>Female</label>
+            <input type="radio" value="f" name="gender">
+
+            <label>Male</label>
+            <input type="radio" value="m" name="gender">
+        </div>
+
+        <div>
+            <label>Apple</label>
+            <input type="checkbox" value="a" name="fruit">
+
+            <label>Orange</label>
+            <input type="checkbox" value="o" name="fruit">
+        </div>
+
+        <label>Message</label>
+        <textarea name="message"></textarea>
+
+        <div>
+            <label>Languages</label>
+            <select name="language">
+                <option value="1">English</option>
+                <option value="2">Nihongo</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Send">
+        <input type="reset">
+        <input type="button" onclick="alert('Hello!')" value="Click me!">
+    </form>
+</body>
+</html>
