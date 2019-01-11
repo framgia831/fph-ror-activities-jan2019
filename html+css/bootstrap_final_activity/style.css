@@ -1,0 +1,13 @@
+.carousel .carousel-inner {
+    height: 550px;
+}
+
+.card-img-top {
+    overflow: hidden;
+    height: 191px;
+}
+
+img.profile {
+    width: 60px;
+    height: 60px;
+}
