@@ -11,5 +11,5 @@ present = gets
 
 # `puts`: display value with a new line at the end
 puts # there is no value passed, so this will display one line
-puts("Dear " + name + ",") # + is used to concatinate value together
-puts("Thanks for the "+ present)
+puts("Dear #{name},") # + is used to concatinate value together
+puts("Thanks for the #{present}")
