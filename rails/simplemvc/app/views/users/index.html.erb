@@ -12,6 +12,7 @@
             <td>
                 <%= link_to "Show", "/users/#{user.id}" %>
                 <%= link_to "Edit", "/users/#{user.id}/edit" %>
+                <%= link_to "Delete", "/users/#{user.id}", method: :delete %>
             </td>
         </tr>
     <% end %>
