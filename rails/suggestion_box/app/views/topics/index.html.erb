@@ -1,0 +1,25 @@
+<h1>Topics</h1>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Vote count</th>
+        <th>Action</th>
+    </tr>
+    <% @topics.each do |topic| %>
+        <tr>
+            <td><%= topic.title %></td>
+            <td><%= topic.votes.count %> votes</td>
+            <td>
+                <%= button_to "+1", "/topics/#{topic.id}/vote" %>
+            </td>
+            <td>
+                <%= link_to "Show", "/topics/#{topic.id}" %>
+                <%= link_to "Edit", "/topics/#{topic.id}/edit" %>
+                <%= link_to "Delete", "/topics/#{topic.id}", method: :delete %>
+            </td>
+        </tr>
+    <% end %>
+</table>
+
+<%= link_to "Create new topic", "/topics/new" %>
