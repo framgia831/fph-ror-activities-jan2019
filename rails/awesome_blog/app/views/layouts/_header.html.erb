@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+        <%= link_to "awesomeblog", root_path, class: "navbar-brand" %>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "About", about_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Contact", contact_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Sign up", new_user_path, class: "nav-link" %>
+            </li>
+        </ul>
+    </div>
+</nav>
