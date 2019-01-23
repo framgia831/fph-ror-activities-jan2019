@@ -49,4 +49,14 @@ class TopicsController < ApplicationController
         redirect_to "/topics"
     end
 
+    def downvote
+        topic = Topic.find(params[:id])
+
+        # if topic.votes.count > 0
+        if topic.votes.any?
+            topic.votes.last.destroy
+        end
+
+        redirect_to "/topics"
+    end
 end

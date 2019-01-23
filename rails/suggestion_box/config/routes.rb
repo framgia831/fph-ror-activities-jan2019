@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root "topics#index"
+  get "/", to: "topics#index"
+
   get "/topics", to: "topics#index"
   get "/topics/new", to: "topics#new"
   post "/topics", to: "topics#create"
