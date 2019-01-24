@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -9,9 +13,13 @@ class UsersController < ApplicationController
     )
 
     if @user.save
-      redirect_to root_url
+      redirect_to user_url(@user.id) #/users/:id
     else
       render "new" #new.html.erb
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 end
