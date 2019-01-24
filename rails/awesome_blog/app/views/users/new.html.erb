@@ -3,7 +3,16 @@
         <h1 class="text-center">Sign up</h1>
         <p class="text-center">Join us for free!</p>
 
-        <%= form_for :user, url: "#" do |f| %>
+        <%= form_for :user, url: users_path do |f| %>
+            <div class="alert alert-danger">
+                This form contains errors.
+            </div>
+            <ul>
+                <% @user.errors.full_messages.each do |msg|  %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+
             <div class="form-group">
                 <%= f.label :name %>
 
