@@ -9,5 +9,5 @@ class User < ApplicationRecord
                     format: { with: EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
-    has_secure_password #password_digest
+    has_secure_password
 end
