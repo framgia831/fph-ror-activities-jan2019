@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email, :password)
     )
 
     if @user.save
