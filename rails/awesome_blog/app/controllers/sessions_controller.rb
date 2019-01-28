@@ -8,16 +8,18 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
 
     if user && user.authenticate(params[:session][:password])
-      # creates a session
-      session[:user_id] = user.id
-      redirect_to user
+      log_in user
+      flash[:success] = "Successfully logged in!"
+      redirect_to user #user_url(user.id)
     else
-      # redirect_to login_url
-      redirect_to root_url
+      flash[:danger] = "Invalid credentials. Please try again."
+      redirect_to login_url
     end
   end
 
   def destroy
-    #delete the session created
+    log_out
+    flash[:info] = "You are logged out."
+    redirect_to root_url
   end
 end

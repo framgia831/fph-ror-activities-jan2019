@@ -11,10 +11,19 @@
 
   <body>
     <%= render "layouts/header" %>
+
     <div class="container mt-3">
+      <% if flash.any? %>
+        <% flash.each do |type, msg| %>
+          <div class="alert alert-<%= type %>">
+            <%= msg %>
+          </div>
+        <% end %>
+      <% end %>
+
       <%= yield %>
     </div>
 
-    <%= debug session[:user_id] %>
+    <%#= debug session[:user_id] %>
   </body>
 </html>

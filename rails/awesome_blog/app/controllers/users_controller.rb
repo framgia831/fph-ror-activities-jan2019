@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:index, :show]
+
   def index
     @users = User.all
   end
@@ -22,4 +24,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
+  private
+    def require_login
+      unless logged_in?
+        flash[:info] = "Please log in."
+        redirect_to login_url
+      end
+    end
 end
