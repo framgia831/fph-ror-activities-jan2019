@@ -1,8 +1,13 @@
 <h1 class="text-center">Users</h1>
+<hr>
+<%= will_paginate %>
+<div class="row">
+    <% @users.each do |user| %>
+        <div class="col-md-6 mb-2">
+            <%= gravatar_for user %>
+            <%= link_to user.name, user_path(user.id) %>
+        </div>
+    <% end %>
+</div>
 
-<% @users.each do |user| %>
-    <div>
-        <%= gravatar_for user %>
-        <%= link_to user.name, user_path(user.id) %>
-    </div>
-<% end %>
+<%= will_paginate %>
