@@ -1,11 +1,9 @@
 module SessionsHelper
     def log_in(user)
-        # creates a session
         session[:user_id] = user.id
     end
 
     def log_out
-        #delete the session created
         session.delete(:user_id)
     end
 
