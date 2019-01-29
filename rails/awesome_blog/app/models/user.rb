@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_many :microposts #array object
+
     before_save { email.downcase! }
 
     validates :name, presence: true
