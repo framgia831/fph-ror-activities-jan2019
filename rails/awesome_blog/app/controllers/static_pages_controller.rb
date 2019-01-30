@@ -1,7 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
-      @microposts = current_user.microposts
+      @micropost = Micropost.new
+      @microposts = current_user.microposts.order(created_at: :desc)
       render "users/home_feed"
     end
   end

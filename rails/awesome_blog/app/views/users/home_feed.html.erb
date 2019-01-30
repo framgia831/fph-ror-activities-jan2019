@@ -7,18 +7,31 @@
                 <h1><%= current_user.name %></h1>
                 <%= current_user.email %>
             </div>
+            <div class="card-footer">
+                <!-- Uses the microposts#create -->
+                <%= form_for @micropost do |f| %>
+                    <%= render "shared/errors", object: f.object %>
+
+                    <div class="form-group">
+                        <%= f.text_area :content, placeholder: "Share your thoughts...", rows: 5, class: "form-control" %>
+                    </div>
+
+                    <div class="form-group">
+                        <%= f.file_field :picture %>
+                    </div>
+
+                    <%= f.submit "Post", class: "btn btn-primary btn-block" %>
+                <% end %>
+            </div>
         </div>
     </div>
     <div class="col-md-8">
-        <% @microposts.each do |micropost| %>
-            <div class="media mb-3">
-                <%= gravatar_for micropost.user %>
+        <h3>Feed</h3>
+        <hr>
+        <%= render @microposts  %>
 
-                <div class="media-body ml-3">
-                    <h5><%= micropost.user.name %></h5>
-                    <%= micropost.content %>
-                </div>
-            </div>
-        <% end %>
+        <%# @microposts.each do |micropost| %>
+            
+        <%# end %>
     </div>
 </div>

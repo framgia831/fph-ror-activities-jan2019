@@ -3,8 +3,8 @@
         <h1 class="text-center">Settings</h1>
         <hr>
 
-        <%= form_for :user, url: user_path, method: :patch do |f| %>
-            <%= render "shared/errors" %>
+        <%= form_for @user do |f| %>
+            <%= render "shared/errors", object: f.object %>
 
             <div class="form-group">
                 <%= f.label :name %>
