@@ -5,17 +5,22 @@ class MicropostsController < ApplicationController
         if @micropost.save
             redirect_to root_url
         else
-            @microposts = current_user.microposts.order(created_at: :desc)
+            @microposts = current_user.microposts.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
             render "users/home_feed"
         end
     end
 
     def destroy
         micropost = Micropost.find(params[:id])
-        micropost.destroy
 
-        flash[:info] = "Micropost deleted."
-        redirect_to root_url
+        if current_user == micropost.user
+            micropost.destroy
+            flash[:info] = "Micropost deleted."
+        else
+            flash[:danger] = "You can't do that."
+        end
+
+        redirect_to request.referrer || root_url
     end
 
     private

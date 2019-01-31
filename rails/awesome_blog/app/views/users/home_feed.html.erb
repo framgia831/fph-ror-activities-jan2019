@@ -6,6 +6,23 @@
 
                 <h1><%= current_user.name %></h1>
                 <%= current_user.email %>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col">
+                        <h5><%= link_to @microposts.count, current_user %></h5>
+                        <small>microposts</small>
+                    </div>
+                    <div class="col">
+                        <h5><%= current_user.active_relationships.count %></h5>
+                        <small>following</small>
+                    </div>
+                    <div class="col">
+                        <h5><%= current_user.passive_relationships.count %></h5>
+                        <small>followers</small>
+                    </div>
+                </div>
             </div>
             <div class="card-footer">
                 <!-- Uses the microposts#create -->
@@ -28,10 +45,10 @@
     <div class="col-md-8">
         <h3>Feed</h3>
         <hr>
-        <%= render @microposts  %>
+        <%= render @microposts %> 
 
-        <%# @microposts.each do |micropost| %>
-            
-        <%# end %>
+        <div class="paginate">
+            <%= will_paginate @microposts %>
+        </div>
     </div>
 </div>

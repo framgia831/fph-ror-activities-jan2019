@@ -1,9 +1,51 @@
 <div class="jumbotron">
-    <%= gravatar_for @user %>
-    <h1><%= @user.name %></h1>
-    <p><%= @user.email %></p>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="media">
+                <%= gravatar_for @user %>
+
+                <div class="media-body ml-3">
+                    <h1><%= @user.name %></h1>
+                    <p><%= @user.email %></p>
+                    
+                    <%# Check if current_user is following this user %>
+
+                    <% unless current_user.relationship(@user) %>
+                        <%= button_to "Follow", relationships_path,
+                                params: { followed_id: @user.id },
+                                class: "btn btn-sm btn-success" %>
+                    <% else %>
+                        <%= button_to "Unfollow", relationship_path(current_user.relationship(@user)),
+                                method: :delete,
+                                class: "btn btn-sm btn-danger" %>
+                    <% end %>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="row">
+                <div class="col">
+                    <h3><%= @user.microposts.count %></h3>
+                    microposts
+                </div>
+                <div class="col">
+                    <h3><%= @user.active_relationships.count %></h3>
+                    following
+                </div>
+                <div class="col">
+                    <h3><%= @user.passive_relationships.count %></h3>
+                    followers
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div>
-    <%= render @user.microposts %>
+    <%= render @microposts %>
+</div>
+
+<div class="paginate">
+    <%= will_paginate @microposts %>
 </div>

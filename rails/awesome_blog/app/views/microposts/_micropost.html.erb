@@ -2,7 +2,7 @@
     <%= gravatar_for micropost.user %>
 
     <div class="media-body ml-3">
-        <h5><%= micropost.user.name %></h5>
+        <h5><%= link_to micropost.user.name, micropost.user %></h5>
         <div><%= micropost.content %></div>
 
         <% if micropost.picture? %>

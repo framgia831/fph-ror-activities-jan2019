@@ -12,4 +12,27 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
     has_secure_password
+
+    def active_relationships
+        Relationship.where(follower_id: id)
+        # SELECT * FROM relationships WHERE
+        # follower_id = id 
+    end
+
+    def passive_relationships
+        Relationship.where(followed_id: id)
+    end
+
+    def follow(other_user)
+        Relationship.create(
+            follower_id: id,
+            followed_id: other_user.id
+        )
+    end
+
+    def relationship(other_user)
+        active_relationships.find_by(
+            followed_id: other_user.id
+        )
+    end
 end
