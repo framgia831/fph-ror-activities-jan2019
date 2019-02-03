@@ -38,6 +38,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @user = User.find(params[:id])
+    @title = "Following"
+    @users = @user.following.paginate(page: params[:page], per_page: 10)
+    render "users/follow"
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @title = "Followers"
+    @users = @user.followers.paginate(page: params[:page], per_page: 10)
+    render "users/follow"
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
